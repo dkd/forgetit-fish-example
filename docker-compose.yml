@@ -1,0 +1,41 @@
+web1:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    # - alfresco
+    # - gate
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web1"
+web2:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    # - alfresco
+    # - gate
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web2"
+nginx:
+  image: "dkdde/fish_nginx"
+  ports:
+    - "80:80"
+  links:
+    - web1
+    - web2
+db:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+#STARTUP_SQL: "/tmp/mounted/initialDatabase.sql"
+  volumes:
+    - database:/tmp/mounted
+# gate:
+#   image: ksjogo/gate
+# alfresco:
+#   image: dkdde/forgetit_typo3_alfresco:latest
