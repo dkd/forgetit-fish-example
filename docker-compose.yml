@@ -43,8 +43,5 @@ alfresco:
    image: dkdde/forgetit_typo3_alfresco:latest
 influxdb:
   image: tutum/influxdb:staging-0.9.0-rc
-  ports:
-    - "8086:8086"
-    - "8083:8083"
   environment:
     PRE_CREATE_DB: "typo3"
