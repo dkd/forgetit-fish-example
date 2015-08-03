@@ -38,7 +38,7 @@ db:
   volumes:
     - database:/tmp/mounted
 gate:
-  image: ksjogo/gate
+  image: dkdde/forgetit_gate
 alfresco:
    image: dkdde/forgetit_typo3_alfresco:latest
 influxdb:
