@@ -25,7 +25,8 @@ web2:
     DB_PORT: "3306"
     DB_NAME: "web2"
 nginx:
-  image: "dkdde/fish_nginx"
+  build: .
+#  image: "dkdde/fish_nginx"
   ports:
     - "80:80"
   volumes:
