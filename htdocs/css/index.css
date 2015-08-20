@@ -3,7 +3,9 @@ html, body{
     height: 100%;
 }
 
-
+h1,h2,h3,h4 {
+    font-family: 'Share', cursive;
+}
 
 #banner{
     height:100%;
@@ -292,7 +294,6 @@ html, body{
 }
 
 #column1 > h2{
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
     font-size: 34px;
     color: #4A4A4A;
     line-height: 40px;
@@ -326,7 +327,6 @@ html, body{
 }
 
 #column2 > h2{
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
     font-size: 34px;
     color: #4A4A4A;
     line-height: 40px;
@@ -360,7 +360,6 @@ html, body{
 }
 
 #column3 > h2{
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
     font-size: 34px;
     color: #4A4A4A;
     line-height: 40px;

@@ -3,6 +3,10 @@ html, body{
     height: 100%;
 }
 
+h1,h2,h3,h4 {
+    font-family: 'Share', cursive;
+}
+
 #header{
     width:55%;
     height:auto;
@@ -257,7 +261,7 @@ html, body{
 .text-content > h1{
     font-size: 41px;
     color: inherit;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-weight: 500;
     line-height: 1.1;
 
