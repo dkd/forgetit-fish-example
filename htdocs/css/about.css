@@ -52,8 +52,7 @@ html, body{
     visibility: visible;
     position: absolute;
     top:0;
-    width:55%;
-    margin-left: -5%;
+    width: 50%;
     height: 4px;
     background-color: #009FE3;
 }
@@ -66,7 +65,7 @@ html, body{
     visibility: visible;
     position: absolute;
     top:0;
-    width:55%;
+    width: 50%;
     height: 4px;
 
     background-color: #4A4A4A;
@@ -98,10 +97,7 @@ html, body{
     font-size: 16px;
     color: #009FE3;
     line-height: 18px;
-    width: 50%;
-    float: left;
     margin-top: 30%;
-    margin-right: 10px;
 }
 @media (max-width: 1100px) and (min-width:900px){
 
@@ -118,8 +114,6 @@ html, body{
     font-size: 16px;
     color: #BBBBBB;
     line-height: 18px;
-    width: 40%;
-    float: right;
     margin-top: 30%;
 }
 
@@ -307,10 +301,15 @@ ul{
     }
 }
 
+/* General */
 
+.site-link {
+    display: inline-block;
+    width: 50%;
+}
 
-
-
-
+.nav-text a {
+    float: left;
+}
 
 
