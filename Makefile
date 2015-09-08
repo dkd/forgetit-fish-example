@@ -8,7 +8,6 @@ up: build
 	docker-compose up
 
 build:
-	boot2docker up
 	docker build -t "dkdde/fish_nginx" .
 
 publish: build
