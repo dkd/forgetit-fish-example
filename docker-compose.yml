@@ -24,6 +24,110 @@ web2:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web2"
+web3:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web3"
+web4:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web4"
+web5:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web5"
+web6:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web6"
+web7:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web7"
+web8:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web8"
+web9:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web9"
+web10:
+  image: dkdde/forgetit_web
+  links:
+    - db
+    - alfresco
+    - gate
+    - influxdb
+    - mimir
+  environment:
+    DB_HOST: "db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web10"
 nginx:
   build: .
 #  image: "dkdde/fish_nginx"
@@ -34,6 +138,14 @@ nginx:
   links:
     - web1
     - web2
+    - web3
+    - web4
+    - web5
+    - web6
+    - web7
+    - web8
+    - web9
+    - web10
     - db
     - gate
     - alfresco
