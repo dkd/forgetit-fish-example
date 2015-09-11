@@ -155,8 +155,6 @@ db:
     MYSQL_USER: "admin"
     MYSQL_PASS: "KtE0uD5dK4rv"
     STARTUP_SQL: "/tmp/mounted/initialDatabase.sql"
-  volumes:
-    - database:/tmp/mounted
 gate:
   image: dkdde/forgetit_gate
 alfresco:
