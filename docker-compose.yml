@@ -162,7 +162,7 @@ gate:
 alfresco:
    image: dkdde/forgetit_typo3_alfresco:latest
 influxdb:
-  image: tutum/influxdb:staging-0.9.0-rc
+  image: tutum/influxdb:0.9
   environment:
     PRE_CREATE_DB: "typo3"
 mimir:
