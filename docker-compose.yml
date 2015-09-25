@@ -1,13 +1,13 @@
 web1:
   image: dkdde/forgetit_web
   links:
-    - db
+    - db1
     - alfresco
     - gate
     - influxdb
     - mimir
   environment:
-    DB_HOST: "db"
+    DB_HOST: "db1"
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web1"
@@ -15,13 +15,13 @@ web1:
 web2:
   image: dkdde/forgetit_web
   links:
-    - db
+    - db2
     - alfresco
     - gate
     - influxdb
     - mimir
   environment:
-    DB_HOST: "db"
+    DB_HOST: "db2"
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web2"
@@ -29,13 +29,13 @@ web2:
 web3:
   image: dkdde/forgetit_web
   links:
-    - db
+    - db3
     - alfresco
     - gate
     - influxdb
     - mimir
   environment:
-    DB_HOST: "db"
+    DB_HOST: "db3"
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web3"
@@ -43,13 +43,13 @@ web3:
 web4:
   image: dkdde/forgetit_web
   links:
-    - db
+    - db4
     - alfresco
     - gate
     - influxdb
     - mimir
   environment:
-    DB_HOST: "db"
+    DB_HOST: "db4"
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web4"
@@ -57,116 +57,71 @@ web4:
 web5:
   image: dkdde/forgetit_web
   links:
-    - db
+    - db5
     - alfresco
     - gate
     - influxdb
     - mimir
   environment:
-    DB_HOST: "db"
+    DB_HOST: "db5"
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web5"
     START_DELAY: 100
-web6:
-  image: dkdde/forgetit_web
-  links:
-    - db
-    - alfresco
-    - gate
-    - influxdb
-    - mimir
-  environment:
-    DB_HOST: "db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "web6"
-    START_DELAY: 120
-web7:
-  image: dkdde/forgetit_web
-  links:
-    - db
-    - alfresco
-    - gate
-    - influxdb
-    - mimir
-  environment:
-    DB_HOST: "db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "web7"
-    START_DELAY: 140
-web8:
-  image: dkdde/forgetit_web
-  links:
-    - db
-    - alfresco
-    - gate
-    - influxdb
-    - mimir
-  environment:
-    DB_HOST: "db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "web8"
-    START_DELAY: 160
-web9:
-  image: dkdde/forgetit_web
-  links:
-    - db
-    - alfresco
-    - gate
-    - influxdb
-    - mimir
-  environment:
-    DB_HOST: "db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "web9"
-    START_DELAY: 180
-web10:
-  image: dkdde/forgetit_web
-  links:
-    - db
-    - alfresco
-    - gate
-    - influxdb
-    - mimir
-  environment:
-    DB_HOST: "db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "web10"
-    START_DELAY: 200
 nginx:
   build: .
 #  image: "dkdde/fish_nginx"
   ports:
     - "80:80"
   volumes:
-    - passwd:/etc/nginx/passwd
+    - ./passwd:/etc/nginx/passwd
   links:
     - web1
     - web2
     - web3
     - web4
     - web5
-    - web6
-    - web7
-    - web8
-    - web9
-    - web10
-    - db
-    - gate
     - alfresco
-db:
+db1:
   image: tutum/mysql:5.5
   environment:
     MYSQL_USER: "admin"
     MYSQL_PASS: "KtE0uD5dK4rv"
-    STARTUP_SQL: "/tmp/mounted/initialDatabase.sql"
+    STARTUP_SQL: "/tmp/mounted/db1.sql"
   volumes:
-    - database:/tmp/mounted
+    - ./database:/tmp/mounted
+db2:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/db2.sql"
+  volumes:
+    - ./database:/tmp/mounted
+db3:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/db3.sql"
+  volumes:
+    - ./database:/tmp/mounted
+db4:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/db4.sql"
+  volumes:
+    - ./database:/tmp/mounted
+db5:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/db5.sql"
+  volumes:
+    - ./database:/tmp/mounted
 gate:
   image: dkdde/forgetit_gate
 alfresco:
