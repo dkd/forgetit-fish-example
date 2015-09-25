@@ -5,7 +5,7 @@ web1:
     - alfresco
     - gate
     - influxdb
-    - mimir
+    - mimir1:mimir
   environment:
     DB_HOST: "db1"
     DB_PASS: "KtE0uD5dK4rv"
@@ -19,7 +19,7 @@ web2:
     - alfresco
     - gate
     - influxdb
-    - mimir
+    - mimir2:mimir
   environment:
     DB_HOST: "db2"
     DB_PASS: "KtE0uD5dK4rv"
@@ -33,7 +33,7 @@ web3:
     - alfresco
     - gate
     - influxdb
-    - mimir
+    - mimir3:mimir
   environment:
     DB_HOST: "db3"
     DB_PASS: "KtE0uD5dK4rv"
@@ -47,7 +47,7 @@ web4:
     - alfresco
     - gate
     - influxdb
-    - mimir
+    - mimir4:mimir
   environment:
     DB_HOST: "db4"
     DB_PASS: "KtE0uD5dK4rv"
@@ -61,7 +61,7 @@ web5:
     - alfresco
     - gate
     - influxdb
-    - mimir
+    - mimir5:mimir
   environment:
     DB_HOST: "db5"
     DB_PASS: "KtE0uD5dK4rv"
@@ -130,5 +130,13 @@ influxdb:
   image: tutum/influxdb:0.9
   environment:
     PRE_CREATE_DB: "typo3"
-mimir:
+mimir1:
+  image: dkdde/forgetit_mimir
+mimir2:
+  image: dkdde/forgetit_mimir
+mimir3:
+  image: dkdde/forgetit_mimir
+mimir4:
+  image: dkdde/forgetit_mimir
+mimir5:
   image: dkdde/forgetit_mimir
