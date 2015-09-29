@@ -11,6 +11,7 @@ web1:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web1"
+    FISH_EVALUATION: "dkd"
     START_DELAY: 20
 web2:
   image: dkdde/forgetit_web
@@ -25,6 +26,7 @@ web2:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web2"
+    FISH_EVALUATION: "dkd"
     START_DELAY: 40
 web3:
   image: dkdde/forgetit_web
@@ -39,6 +41,7 @@ web3:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web3"
+    FISH_EVALUATION: "dkd"
     START_DELAY: 60
 web4:
   image: dkdde/forgetit_web
@@ -53,6 +56,7 @@ web4:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web4"
+    FISH_EVALUATION: "dkd"
     START_DELAY: 80
 web5:
   image: dkdde/forgetit_web
@@ -67,6 +71,7 @@ web5:
     DB_PASS: "KtE0uD5dK4rv"
     DB_PORT: "3306"
     DB_NAME: "web5"
+    FISH_EVALUATION: "dkd"
     START_DELAY: 100
 nginx:
   build: .
