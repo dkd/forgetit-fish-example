@@ -12,3 +12,9 @@ build:
 
 publish: build
 	docker push "dkdde/fish_nginx"
+
+serverrecreate:
+	sudo docker-compose stop
+	sudo docker-compose rm -fv
+	sudo docker-compose up -d
+	sudo docker-compose logs
