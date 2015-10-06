@@ -16,5 +16,6 @@ publish: build
 serverrecreate:
 	sudo docker-compose stop
 	sudo docker-compose rm -fv
+	sudo docker-compose pull
 	sudo docker-compose up -d
 	sudo docker-compose logs
