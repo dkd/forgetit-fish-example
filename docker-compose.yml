@@ -73,6 +73,21 @@ web5:
     DB_NAME: "web5"
     FISH_EVALUATION: "dkd"
     START_DELAY: 100
+web6:
+  image: dkdde/forgetit_web
+  links:
+    - db6
+    - alfresco
+    - gate
+    - influxdb
+    - mimir6:mimir
+  environment:
+    DB_HOST: "db6"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "web6"
+    FISH_EVALUATION: "dkd"
+    START_DELAY: 120
 nginx:
   build: .
 #  image: "dkdde/fish_nginx"
@@ -87,6 +102,8 @@ nginx:
     - web4
     - web5
     - alfresco
+    - influxdb
+    - chronograph
 db1:
   image: tutum/mysql:5.5
   environment:
@@ -127,6 +144,14 @@ db5:
     STARTUP_SQL: "/tmp/mounted/db5.sql"
   volumes:
     - ./database:/tmp/mounted
+db6:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/db5.sql"
+  volumes:
+    - ./database:/tmp/mounted
 gate:
   image: dkdde/forgetit_gate
 alfresco:
@@ -145,3 +170,11 @@ mimir4:
   image: dkdde/forgetit_mimir
 mimir5:
   image: dkdde/forgetit_mimir
+mimir6:
+  image: dkdde/forgetit_mimir
+chronograph:
+  image: lukasmartinelli/chronograf
+  environment:
+    INFLUXDB_HOST: "influxdb"
+  links:
+    - influxdb
