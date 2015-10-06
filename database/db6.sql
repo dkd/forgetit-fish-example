@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `web2` DEFAULT CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS `web6` DEFAULT CHARACTER SET utf8;
 
-USE `web2`;
+USE `web6`;
 -- MySQL dump 10.13  Distrib 5.5.44, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: typo3_testing_fish-shop_net
@@ -5223,7 +5223,7 @@ INSERT INTO `tx_scheduler_task` VALUES (1,1441810305,0,'',1441896660,0,'','','O:
 INSERT INTO `tx_scheduler_task` VALUES (7,1444064204,1,'',0,1444065253,'','CLI','O:32:\"TYPO3\\CMS\\Extbase\\Scheduler\\Task\":9:{s:20:\"\0*\0commandIdentifier\";s:27:\"cmis_fal:cmisfal:initialize\";s:12:\"\0*\0arguments\";a:3:{s:13:\"createStorage\";s:1:\"1\";s:12:\"createMounts\";s:1:\"1\";s:18:\"assignToUserGroups\";s:1:\"*\";}s:11:\"\0*\0defaults\";a:3:{s:13:\"createStorage\";i:1;s:12:\"createMounts\";i:1;s:18:\"assignToUserGroups\";s:1:\"*\";}s:10:\"\0*\0taskUid\";i:7;s:11:\"\0*\0disabled\";b:1;s:12:\"\0*\0execution\";O:29:\"TYPO3\\CMS\\Scheduler\\Execution\":6:{s:8:\"\0*\0start\";i:1444064160;s:6:\"\0*\0end\";i:1444064160;s:11:\"\0*\0interval\";i:0;s:11:\"\0*\0multiple\";i:0;s:10:\"\0*\0cronCmd\";s:0:\"\";s:23:\"\0*\0isNewSingleExecution\";b:0;}s:16:\"\0*\0executionTime\";i:1444064160;s:14:\"\0*\0description\";s:0:\"\";s:12:\"\0*\0taskGroup\";i:0;}','',0);
 UNLOCK TABLES;
 LOCK TABLES `sys_domain` WRITE;
-INSERT INTO `sys_domain` VALUES (1,193,1441960677,0,'web2.fish-shop.net','',256,0,1441960677,87,301,0,'8889d7ca-11d1-4773-85ce-44427dc2def0');
+INSERT INTO `sys_domain` VALUES (1,193,1441960677,0,'web6.fish-shop.net','',256,0,1441960677,87,301,0,'8889d7ca-11d1-4773-85ce-44427dc2def0');
 UNLOCK TABLES;
 -- create admin user
 LOCK TABLES `be_users` WRITE;
@@ -5257,7 +5257,7 @@ UNLOCK TABLES;
 LOCK TABLES `sys_template` WRITE;
 UPDATE `sys_template` SET
 `include_static_file` = 'EXT:forgetit_fishshop,\r\nEXT:cmis_service/Configuration/TypoScript/News',
-`constants` = '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:forgetit_fishshop/Configuration/TypoScript/Constants/config.txt">\r\nplugin.tx_aggregation.settings.queue.types.sys_file.baseUrl = http://abc.de/\r\nplugin.tx_aggregation.settings.influxDb.database = web2',
+`constants` = '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:forgetit_fishshop/Configuration/TypoScript/Constants/config.txt">\r\nplugin.tx_aggregation.settings.queue.types.sys_file.baseUrl = http://abc.de/\r\nplugin.tx_aggregation.settings.influxDb.database = web6',
 `config` = '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:forgetit_fishshop/Configuration/TypoScript/Setup/page.txt">\r\nplugin.tx_cmisservice.settings.cmis.servers.default {\r\n    url = http://alfresco:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser\r\n    username = admin\r\n    password = AlfrescoAdmin\r\n}'
 WHERE `root` = 1;
 UNLOCK TABLES;

@@ -5266,3 +5266,8 @@ UNLOCK TABLES;
 LOCK TABLES `pages` WRITE;
 UPDATE pages SET hidden = 1 WHERE uid = 306;
 UNLOCK TABLES;
+
+-- clear fishlike counters
+LOCK TABLES `tx_fishlike_like` WRITE;
+DELETE FROM tx_fishlike_like;
+UNLOCK TABLES;
