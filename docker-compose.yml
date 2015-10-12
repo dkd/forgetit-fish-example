@@ -89,8 +89,7 @@ web6:
     FISH_EVALUATION: "dkd"
     START_DELAY: 120
 nginx:
-  build: .
-#  image: "dkdde/fish_nginx"
+  image: "dkdde/fish_nginx"
   ports:
     - "80:80"
   volumes:
