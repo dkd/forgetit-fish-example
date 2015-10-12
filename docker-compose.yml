@@ -100,6 +100,7 @@ nginx:
     - web3
     - web4
     - web5
+    - web6
     - alfresco
     - influxdb
     - chronograph
