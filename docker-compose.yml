@@ -149,7 +149,7 @@ db6:
   environment:
     MYSQL_USER: "admin"
     MYSQL_PASS: "KtE0uD5dK4rv"
-    STARTUP_SQL: "/tmp/mounted/db5.sql"
+    STARTUP_SQL: "/tmp/mounted/db6.sql"
   volumes:
     - ./database:/tmp/mounted
 gate:
