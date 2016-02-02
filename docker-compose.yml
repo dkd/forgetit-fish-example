@@ -101,6 +101,7 @@ nginx:
     - web4
     - web5
     - web6
+    - r_web
     - alfresco
     - influxdb
     - chronograph
@@ -178,3 +179,30 @@ chronograph:
     INFLUXDB_HOST: "influxdb"
   links:
     - influxdb
+
+
+r_mimir:
+  image: dkdde/forgetit_mimir
+r_db:
+  image: tutum/mysql:5.5
+  environment:
+    MYSQL_USER: "admin"
+    MYSQL_PASS: "KtE0uD5dK4rv"
+    STARTUP_SQL: "/tmp/mounted/review.sql"
+  volumes:
+    - ./database:/tmp/mounted
+r_web:
+  image: dkdde/forgetit_web
+  links:
+    - r_db
+    - alfresco
+    - gate
+    - influxdb
+    - r_mimir:mimir
+  environment:
+    DB_HOST: "r_db"
+    DB_PASS: "KtE0uD5dK4rv"
+    DB_PORT: "3306"
+    DB_NAME: "review"
+    FISH_EVALUATION: "dkd"
+    START_DELAY: 140
