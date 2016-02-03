@@ -12,7 +12,7 @@ web1:
     DB_PORT: "3306"
     DB_NAME: "web1"
     FISH_EVALUATION: "dkd"
-    START_DELAY: 20
+    START_DELAY: 30
 web2:
   image: dkdde/forgetit_web
   links:
@@ -205,4 +205,4 @@ r_web:
     DB_PORT: "3306"
     DB_NAME: "review"
     FISH_EVALUATION: "dkd"
-    START_DELAY: 140
+    START_DELAY: 0
