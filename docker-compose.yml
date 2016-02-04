@@ -155,7 +155,7 @@ nginx:
 #     - ./database:/tmp/mounted
 gate:
   image: dkdde/forgetit_gate
-   links:
+  links:
     - "ambassador:ontoaut"
 alfresco:
    image: dkdde/forgetit_typo3_alfresco
