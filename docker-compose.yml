@@ -1,220 +1,49 @@
-# web1:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db1
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir1:mimir
-#   environment:
-#     DB_HOST: "db1"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web1"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 30
-# web2:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db2
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir2:mimir
-#   environment:
-#     DB_HOST: "db2"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web2"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 40
-# web3:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db3
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir3:mimir
-#   environment:
-#     DB_HOST: "db3"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web3"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 60
-# web4:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db4
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir4:mimir
-#   environment:
-#     DB_HOST: "db4"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web4"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 80
-# web5:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db5
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir5:mimir
-#   environment:
-#     DB_HOST: "db5"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web5"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 100
-# web6:
-#   image: dkdde/forgetit_web
-#   links:
-#     - db6
-#     - alfresco
-#     - gate
-#     - influxdb
-#     - mimir6:mimir
-#   environment:
-#     DB_HOST: "db6"
-#     DB_PASS: "KtE0uD5dK4rv"
-#     DB_PORT: "3306"
-#     DB_NAME: "web6"
-#     FISH_EVALUATION: "dkd"
-#     START_DELAY: 120
-nginx:
-  image: "dkdde/fish_nginx"
-  ports:
-    - "80:80"
-  volumes:
-    - ./passwd:/etc/nginx/passwd
-  links:
-    # - web1
-    # - web2
-    # - web3
-    # - web4
-    # - web5
-    # - web6
-    - r_web
-    - alfresco
-    - influxdb
-    - chronograph
-# db1:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db1.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
-# db2:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db2.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
-# db3:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db3.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
-# db4:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db4.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
-# db5:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db5.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
-# db6:
-#   image: tutum/mysql:5.5
-#   environment:
-#     MYSQL_USER: "admin"
-#     MYSQL_PASS: "KtE0uD5dK4rv"
-#     STARTUP_SQL: "/tmp/mounted/db6.sql"
-#   volumes:
-#     - ./database:/tmp/mounted
 gate:
   image: dkdde/forgetit_gate
-  links:
-    - "ambassador:ontoaut"
+  container_name: 'gate'
 alfresco:
-   image: dkdde/forgetit_typo3_alfresco
+  image: dkdde/forgetit_typo3_alfresco
+  container_name: 'alfresco'
 influxdb:
   image: tutum/influxdb:0.9
+  container_name: 'influxdb'
   environment:
-    PRE_CREATE_DB: "typo3"
-# mimir1:
-#   image: dkdde/forgetit_mimir
-# mimir2:
-#   image: dkdde/forgetit_mimir
-# mimir3:
-#   image: dkdde/forgetit_mimir
-# mimir4:
-#   image: dkdde/forgetit_mimir
-# mimir5:
-#   image: dkdde/forgetit_mimir
-# mimir6:
-#   image: dkdde/forgetit_mimir
+    PRE_CREATE_DB: 'typo3'
 chronograph:
   image: lukasmartinelli/chronograf
+  container_name: 'chronograph'
   environment:
-    INFLUXDB_HOST: "influxdb"
-  links:
-    - influxdb
+    INFLUXDB_HOST: 'influxdb'
 r_mimir:
+  container_name: 'mimir'
   image: dkdde/forgetit_mimir
 r_db:
   image: tutum/mysql:5.5
+  container_name: 'db'
   environment:
-    MYSQL_USER: "admin"
-    MYSQL_PASS: "KtE0uD5dK4rv"
-    STARTUP_SQL: "/tmp/mounted/review.sql"
+    MYSQL_USER: 'admin'
+    MYSQL_PASS: 'KtE0uD5dK4rv'
+    STARTUP_SQL: '/tmp/mounted/review.sql'
   volumes:
     - ./database:/tmp/mounted
 r_web:
   image: dkdde/forgetit_web
-  links:
-    - r_db
-    - alfresco
-    - gate
-    - influxdb
-    - r_mimir:mimir
+  container_name: 'web'
   environment:
-    DB_HOST: "r_db"
-    DB_PASS: "KtE0uD5dK4rv"
-    DB_PORT: "3306"
-    DB_NAME: "review"
-    FISH_EVALUATION: "dkd"
+    DB_HOST: 'db'
+    DB_PASS: 'KtE0uD5dK4rv'
+    DB_PORT: '3306'
+    DB_NAME: 'review'
+    FISH_EVALUATION: 'dkd'
     START_DELAY: 0
 ontoaut:
   image: ksjogo/ontoaut
-  command: "npm run-script start-dev -- -L"
-  links:
-    - "ambassador:gate"
+  container_name: 'ontoaut'
+  command: 'npm run-script start-dev -- -L'
+nginx:
+  build: '.'
+  container_name: 'nginx'
   ports:
-    - "3001:3001"
-ambassador:
-    image: cpuguy83/docker-grand-ambassador
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    command: "-name env_ontoaut_1 -name env_gate_1"
+    - '80:80'
+  volumes:
+    - ./passwd:/etc/nginx/passwd
