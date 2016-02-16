@@ -29,6 +29,8 @@ r_db:
 r_web:
   image: dkdde/forgetit_web
   container_name: 'web'
+  volumes:
+  - ../semantic_images:/app/typo3conf/ext/semantic_images
   environment:
     DB_HOST: 'db'
     DB_PASS: 'KtE0uD5dK4rv'
