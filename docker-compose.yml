@@ -6,6 +6,7 @@ alfresco:
   container_name: 'alfresco'
 influxdb:
   image: tutum/influxdb:0.9
+  command: "/bin/sh -c '/run.sh 2>&1 | grep query'"
   container_name: 'influxdb'
   environment:
     PRE_CREATE_DB: 'typo3'
