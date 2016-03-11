@@ -22,7 +22,7 @@ publish: build
 
 review:
 	sudo docker-compose stop
-	sudo docker-compose rm -fv nginx r_web r_db
+	sudo docker-compose rm -fv nginx web db
 	sudo docker-compose pull
-	sudo docker-compose up -d
+	sudo docker-compose --x-networking up -d
 	sudo docker-compose logs

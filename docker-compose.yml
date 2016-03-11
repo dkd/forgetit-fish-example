@@ -39,6 +39,7 @@ web:
     DB_PORT: '3306'
     DB_NAME: 'review'
     FISH_EVALUATION: 'dkd'
+    TYPO3_CONTEXT: 'Development'
     START_DELAY: 0
 ontoaut:
   image: ksjogo/ontoaut
